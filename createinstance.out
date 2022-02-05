@@ -1,0 +1,123 @@
+[0m[1maws_vpc.default: Refreshing state... [id=vpc-0ae44499c9303bce4][0m
+[0m[1maws_subnet.subnet2-public: Refreshing state... [id=subnet-01faa31c22437f03a][0m
+[0m[1maws_security_group.allow_all: Refreshing state... [id=sg-0910a3663988ec749][0m
+[0m[1maws_subnet.subnet3-public: Refreshing state... [id=subnet-0e8b606c34eeb5aa3][0m
+[0m[1maws_internet_gateway.default: Refreshing state... [id=igw-0a806ad38ff839bf4][0m
+[0m[1maws_subnet.subnet1-public: Refreshing state... [id=subnet-03a0adb84bd974cf4][0m
+[0m[1maws_route_table.terraform-public: Refreshing state... [id=rtb-0ac588706f0d15c4c][0m
+[0m[1maws_route_table_association.terraform-public: Refreshing state... [id=rtbassoc-02dea7fc7e0cc4aa1][0m
+[0m
+[1m[36mNote:[0m[1m Objects have changed outside of Terraform[0m
+
+[0mTerraform detected the following changes made outside of Terraform since the
+last "terraform apply":
+
+[1m  # aws_security_group.allow_all[0m has changed[0m[0m
+[0m  [33m~[0m[0m resource "aws_security_group" "allow_all" {
+        [1m[0mid[0m[0m                     = "sg-0910a3663988ec749"
+        [1m[0mname[0m[0m                   = "allow_all"
+      [32m+[0m [0m[1m[0mtags[0m[0m                   = {}
+        [90m# (7 unchanged attributes hidden)[0m[0m
+    }
+
+
+Unless you have made equivalent changes to your configuration, or ignored the
+relevant attributes using ignore_changes, the following plan may include
+actions to undo or respond to these changes.
+[90m
+─────────────────────────────────────────────────────────────────────────────[0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create
+[0m
+Terraform will perform the following actions:
+
+[1m  # aws_instance.web-1[0m will be created[0m[0m
+[0m  [32m+[0m[0m resource "aws_instance" "web-1" {
+      [32m+[0m [0m[1m[0mami[0m[0m                          = "ami-0d997c5f64a74852c"
+      [32m+[0m [0m[1m[0marn[0m[0m                          = (known after apply)
+      [32m+[0m [0m[1m[0massociate_public_ip_address[0m[0m  = true
+      [32m+[0m [0m[1m[0mavailability_zone[0m[0m            = "us-east-1a"
+      [32m+[0m [0m[1m[0mcpu_core_count[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mcpu_threads_per_core[0m[0m         = (known after apply)
+      [32m+[0m [0m[1m[0mget_password_data[0m[0m            = false
+      [32m+[0m [0m[1m[0mhost_id[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mid[0m[0m                           = (known after apply)
+      [32m+[0m [0m[1m[0minstance_state[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0minstance_type[0m[0m                = "t2.micro"
+      [32m+[0m [0m[1m[0mipv6_address_count[0m[0m           = (known after apply)
+      [32m+[0m [0m[1m[0mipv6_addresses[0m[0m               = (known after apply)
+      [32m+[0m [0m[1m[0mkey_name[0m[0m                     = "LaptopKey"
+      [32m+[0m [0m[1m[0moutpost_arn[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mpassword_data[0m[0m                = (known after apply)
+      [32m+[0m [0m[1m[0mplacement_group[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0mprimary_network_interface_id[0m[0m = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_dns[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mprivate_ip[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mpublic_dns[0m[0m                   = (known after apply)
+      [32m+[0m [0m[1m[0mpublic_ip[0m[0m                    = (known after apply)
+      [32m+[0m [0m[1m[0msecondary_private_ips[0m[0m        = (known after apply)
+      [32m+[0m [0m[1m[0msecurity_groups[0m[0m              = (known after apply)
+      [32m+[0m [0m[1m[0msource_dest_check[0m[0m            = true
+      [32m+[0m [0m[1m[0msubnet_id[0m[0m                    = "subnet-03a0adb84bd974cf4"
+      [32m+[0m [0m[1m[0mtags[0m[0m                         = {
+          [32m+[0m [0m"CostCenter" = "ABCD"
+          [32m+[0m [0m"Env"        = "Prod"
+          [32m+[0m [0m"Name"       = "Server-1"
+          [32m+[0m [0m"Owner"      = "Sree"
+        }
+      [32m+[0m [0m[1m[0mtenancy[0m[0m                      = (known after apply)
+      [32m+[0m [0m[1m[0mvolume_tags[0m[0m                  = (known after apply)
+      [32m+[0m [0m[1m[0mvpc_security_group_ids[0m[0m       = [
+          [32m+[0m [0m"sg-0910a3663988ec749",
+        ]
+
+      [32m+[0m [0mebs_block_device {
+          [32m+[0m [0m[1m[0mdelete_on_termination[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mdevice_name[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mencrypted[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0miops[0m[0m                  = (known after apply)
+          [32m+[0m [0m[1m[0mkms_key_id[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0msnapshot_id[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_id[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_size[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_type[0m[0m           = (known after apply)
+        }
+
+      [32m+[0m [0mephemeral_block_device {
+          [32m+[0m [0m[1m[0mdevice_name[0m[0m  = (known after apply)
+          [32m+[0m [0m[1m[0mno_device[0m[0m    = (known after apply)
+          [32m+[0m [0m[1m[0mvirtual_name[0m[0m = (known after apply)
+        }
+
+      [32m+[0m [0mmetadata_options {
+          [32m+[0m [0m[1m[0mhttp_endpoint[0m[0m               = (known after apply)
+          [32m+[0m [0m[1m[0mhttp_put_response_hop_limit[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mhttp_tokens[0m[0m                 = (known after apply)
+        }
+
+      [32m+[0m [0mnetwork_interface {
+          [32m+[0m [0m[1m[0mdelete_on_termination[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mdevice_index[0m[0m          = (known after apply)
+          [32m+[0m [0m[1m[0mnetwork_interface_id[0m[0m  = (known after apply)
+        }
+
+      [32m+[0m [0mroot_block_device {
+          [32m+[0m [0m[1m[0mdelete_on_termination[0m[0m = (known after apply)
+          [32m+[0m [0m[1m[0mdevice_name[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mencrypted[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0miops[0m[0m                  = (known after apply)
+          [32m+[0m [0m[1m[0mkms_key_id[0m[0m            = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_id[0m[0m             = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_size[0m[0m           = (known after apply)
+          [32m+[0m [0m[1m[0mvolume_type[0m[0m           = (known after apply)
+        }
+    }
+
+[0m[1mPlan:[0m 1 to add, 0 to change, 0 to destroy.
+[0m[90m
+─────────────────────────────────────────────────────────────────────────────[0m
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.
